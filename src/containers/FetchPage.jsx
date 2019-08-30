@@ -1,4 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux';
+import { fetchPages } from '../client/state/actions';
+import fetchData from '../helpers/fetchData';
 
 class FetchPage extends React.Component {
     state= {};
@@ -10,4 +13,7 @@ class FetchPage extends React.Component {
     }
 }
 
-export default FetchPage
+const fetchPagesHoc = ({ dispatch }) => dispatch(fetchPages());
+
+export default fetchData(fetchPagesHoc)(connect(null,
+    { fetchPages })(FetchPage));
