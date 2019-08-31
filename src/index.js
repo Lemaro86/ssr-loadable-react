@@ -24,7 +24,7 @@ const developerEnv = app.get('env') === 'development';
 /**
  * generation route
  * */
-app.get('/createRoutes', async (req, res) => {
+app.get('/getRoutes', async (req, res) => {
 
         try {
             allRoutes = await getRoutes();
