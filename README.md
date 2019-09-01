@@ -20,7 +20,7 @@ Maybe you think that route config need collect every time when you refresh html 
 site or app, you can't do it very often. Many requests can down our express server by highLoad. For create and update 
 Routes you can once get it after build app so: '/getRoutes'. But in other way how get new
 article or news if route have been collected before? This problem you can resolve if get routes again: '/getRoutes/'.
-Imagine you have big site with hundreds or thousends urls. Of course all this urls you need get from server. So our app
+Imagine you have big site with hundreds or thousands urls. Of course all this urls you need get from server. So our app
 can do it in route config. We fetching page by the page with urls list and then write it in our route-config. 
 
 ##First page magic
