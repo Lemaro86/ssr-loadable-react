@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 export const IMITATION_REQUEST = 'req imitation';
 export const IMITATION_SUCCESS = 'success nothing';
 
@@ -7,7 +5,11 @@ export const IMITATION_SUCCESS = 'success nothing';
  * NODE server
  * */
 export const fetchPages = () => async dispatch => {
-    await axios.get('/').then(res => {
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(3000, resolve(''))
+    });
+
+    await promise.then(res => {
         dispatch({
             type: IMITATION_REQUEST,
             payload: res

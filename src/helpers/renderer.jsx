@@ -9,7 +9,7 @@ import 'jsdom-global';
 import jsdom from 'jsdom';
 import 'amdefine';
 import manifest from '../../build/assets-manifest.json';
-import { createStore } from '../Store/configureStore';
+import { createStore } from '../client/state/store/configureStore';
 import { getBundles } from './getBundles';
 
 const renderer = async (req, res, allRoutes) => {

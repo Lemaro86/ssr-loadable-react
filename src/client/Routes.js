@@ -1,5 +1,5 @@
 import Loadable from 'react-loadable';
-import { pagesRoutes } from './routes/pagesRoutes.config';
+import pagesRoutes from './routes/pagesRoutes.config';
 
 const AsyncNotFound = Loadable({
     loader: () => import(/* webpackChunkName: "notFound" */ '../containers/NotFound'),

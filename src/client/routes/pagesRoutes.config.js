@@ -1,14 +1,19 @@
-const fetch = require('node-fetch');
+import urlExamples from '../../../urlExamples.json'
 
 const pagesRoutes = async routePage => {
     const routesPageConfig = [];
-    await fetch(`getUrl`)
+
+    const promise = new Promise((res) => {
+       setTimeout(1000, () => res(urlExamples));
+    });
+
+    await promise
         .then(item => item.json())
         .then(data => data.pages.forEach(item => routesPageConfig.push(routePage(item))))
         .catch(() => {});
+
+    console.log('----------------routesPageConfig---', routesPageConfig);
     return routesPageConfig;
 };
 
-module.exports = {
-    pagesRoutes
-};
+export default pagesRoutes;

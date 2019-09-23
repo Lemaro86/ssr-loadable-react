@@ -1,5 +1,6 @@
 import express from 'express';
 import Loadable from 'react-loadable';
+import renderer from './helpers/renderer';
 
 /**
  * Here you are start your express server.
@@ -26,11 +27,11 @@ const developerEnv = app.get('env') === 'development';
  * */
 app.get('/getRoutes', async (req, res) => {
 
-        try {
-            allRoutes = await getRoutes();
-        } catch (err) {
-            console.log('get routes err: ', err);
-        }
+    try {
+        allRoutes = await getRoutes();
+    } catch (err) {
+        console.log('get routes err: ', err);
+    }
 
     if (allRoutes.length > 0) {
         return res.sendStatus(200);
@@ -44,7 +45,7 @@ app.get('/getRoutes', async (req, res) => {
 // app.get('/some url', async (req, res) => { });
 
 /**
- * all pages our site ***************this serverv renderer and start
+ * all pages our site ***************this server renderer and start
  * */
 app.get('/*', async (req, res) => {
     renderer(req, res, allRoutes);

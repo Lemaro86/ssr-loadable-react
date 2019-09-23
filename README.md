@@ -1,13 +1,14 @@
 # ssr-loadable-react
 This is tutorial. How to make SSR in react with loadable and prefetch data in component instead cdm
-And code splitting with chunks and others "cookies"
+And code splitting with chunks and others features. Simple and easy. 
 
 #How to install
-1. git clone this repo on your PC
-2. go to dir with project
-3. npm i
-4. for build client dist run command: npm run dev:build-client
-5. for build server dist run command: npm run dev:build-server
+1. npm i
+2. npm run dev:build-client
+3. npm run dev:build-server
+4. npm run dev:server
+
+Step 4 will start server on 3001 port if dev env, else 3000
 
 ##What we have on the start?
 After build in webpack we have 2 folder. For server rendering we have ./build, and for client we have client.
@@ -42,3 +43,6 @@ When you refactoring you app from SPA to SRA problem with window not found error
 if (typeof window !== 'undefined') ... If error in npm package, you can create issue in github, or download this package
 and fix it local and save as your component. Unfortunately, we haven`t guarantee that this issues will be fixed soon.
 Other error, like document is undefined you can fix as a window error. Good Luck! 
+
+##Contact
+You can contact me in telegram: @offnites
