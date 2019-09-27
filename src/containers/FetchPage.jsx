@@ -12,18 +12,26 @@ class FetchPage extends React.Component {
         return arr[0];
     };
 
-    render(){
+    renderMenu = (pages) => {
+        return pages?.map((e) => (
+            <div key={e.id}><Link to={`/pageFetch/${e.id}`}> Page: {e.id} </Link></div>
+        ))
+    };
+
+    render() {
         const { fetchPages } = this.props;
         const current = fetchPages?.pages && this.getCurrent(fetchPages);
-        //console.log('--------------fetch-----', fetchPages);
         return (
-            <center>
-                {current && <h1>{current.title}</h1>}
-                {current && <b>{current.text}</b>}
-                <br />
+            <div>
+                {fetchPages?.pages && this.renderMenu(fetchPages.pages)}
+                <center>
+                    {current && <h1>{current.title}</h1>}
+                    {current && <b>{current.text}</b>}
+                    <br />
 
-                <i>Async Page fetch from json</i>
-            </center>
+                    <i>Async Page fetch from json</i>
+                </center>
+            </div>
         )
     }
 }
