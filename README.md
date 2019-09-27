@@ -1,6 +1,10 @@
-# ssr-loadable-react
+# ssr-loadable-react simple to understand
 This is tutorial. How to make SSR in react with loadable and prefetch data in component instead cdm
 And code splitting with chunks and others features. Simple and easy. 
+
+# Below on the pic you can see how this project render on server and then use hydrate
+
+![Alt text](ex.png "Optional Title")
 
 # How to install
 1. npm i
@@ -47,5 +51,3 @@ Other error, like document is undefined you can fix as a window error. Good Luck
 ## Contact
 You can contact me in telegram: @offnites
 
-
-![Alt text](ex.png "Optional Title")
