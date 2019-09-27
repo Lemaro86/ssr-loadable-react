@@ -44,7 +44,7 @@ if (typeof window !== 'undefined') ... If error in npm package, you can create i
 and fix it local and save as your component. Unfortunately, we haven`t guarantee that this issues will be fixed soon.
 Other error, like document is undefined you can fix as a window error. Good Luck! 
 
-##Contact
+## Contact
 You can contact me in telegram: @offnites
 
 
