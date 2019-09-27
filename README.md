@@ -1,6 +1,7 @@
 # ssr-loadable-react simple to understand
 This is tutorial. How to make SSR in react with loadable and prefetch data in component instead cdm
-And code splitting with chunks and others features. Simple and easy. 
+And code splitting with chunks and others features. Simple and easy. Full Code splitting, super optimization
+for your site. But be carefully. SSR get more resource from server and can be danger with big high-load projects.
 
 # Below on the pic you can see how this project render on server and then use hydrate
 
