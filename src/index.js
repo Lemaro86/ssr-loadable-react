@@ -1,5 +1,6 @@
 import express from 'express';
 import Loadable from 'react-loadable';
+import getRoutes from './client/Routes';
 import renderer from './helpers/renderer';
 
 /**
@@ -25,20 +26,20 @@ const developerEnv = app.get('env') === 'development';
 /**
  * generation route
  * */
-app.get('/getRoutes', async (req, res) => {
-
-    try {
-        allRoutes = await getRoutes();
-    } catch (err) {
-        console.log('get routes err: ', err);
-    }
-
+const routesGen = async (req, res, next) => {
     if (allRoutes.length > 0) {
-        return res.sendStatus(200);
+        next()
     } else {
-        return res.sendStatus(500)
+        try {
+            allRoutes = await getRoutes();
+        } catch (err) {
+            console.log('get all routes failed with error: ', err);
+        }
+        next();
     }
-});
+};
+
+app.use(routesGen);
 
 // if you need here you can write sitemap generation code
 // in other like this declaration you can right for robots.txt function
@@ -60,7 +61,7 @@ const port = developerEnv ? 3001 : 3000;
 
 Loadable.preloadAll().then(() => {
     app.listen(port, () => {
-        console.log(`Look at this lol localhost:${port}`);
+        console.log(`Look at this localhost:${port}`);
     });
 }).catch(err => {
     console.log(err);

@@ -67,8 +67,17 @@ const renderer = async (req, res, allRoutes) => {
         const bundles = getBundles(manifest, modules);
         const jsChunks = bundles && bundles.js
             .map(c => `<script src="/${c.file}"></script>`).join('\n');
-        const cssChunks = bundles && bundles.css
-            .map(c => `<link rel="stylesheet" type="text/css" href="/${c.file}" />`).join('\n');
+        /** if you have styles, you need setting it
+         * @type {object}
+         */
+        // const cssChunks = bundles && bundles.css
+        //     .map(c => `<link rel="stylesheet" type="text/css" href="/${c.file}" />`).join('\n');
+        /**
+         *  below add this after meta tag
+         *  <link rel="stylesheet" type="text/css" href="/main.css" rel="stylesheet" />
+         *  <link rel="stylesheet" type="text/css" href="/manifest.chunk.css" rel="stylesheet" />
+         *  ${cssChunks}
+         * */
 
         const contentFull = `
                 <!doctype html>
@@ -77,9 +86,7 @@ const renderer = async (req, res, allRoutes) => {
                         <meta charset="utf-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
                         <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-                        <link rel="stylesheet" type="text/css" href="/main.css" rel="stylesheet" />
-                        <link rel="stylesheet" type="text/css" href="/manifest.chunk.css" rel="stylesheet" />
-                        ${cssChunks}                       
+                                            
                     </head>
                     <body>
                         <div id="root" style="height:100%">${content}</div>

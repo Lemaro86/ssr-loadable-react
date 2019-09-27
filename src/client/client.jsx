@@ -26,9 +26,9 @@ window.main = () => {
     }).then(routes => {
         ReactDom.hydrate(
             <Provider store={store}>
-            <BrowserRouter>
-            {renderRoutes(routes)}
-            </BrowserRouter>
+                <BrowserRouter>
+                    {renderRoutes(routes)}
+                </BrowserRouter>
             </Provider>,
             document.querySelector('#root'),
             () => store.dispatch(enableDataFetch())

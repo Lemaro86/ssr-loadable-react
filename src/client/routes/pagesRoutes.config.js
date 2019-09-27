@@ -3,16 +3,16 @@ import urlExamples from '../../../urlExamples.json'
 const pagesRoutes = async routePage => {
     const routesPageConfig = [];
 
-    const promise = new Promise((res) => {
-       setTimeout(1000, () => res(urlExamples));
+    const promise = new Promise((resolve) => {
+       setTimeout(() => resolve(urlExamples), 1000);
     });
 
     await promise
-        .then(item => item.json())
-        .then(data => data.pages.forEach(item => routesPageConfig.push(routePage(item))))
+        .then(data => {
+            return data.forEach(item => routesPageConfig.push(routePage(item)))
+        })
         .catch(() => {});
 
-    console.log('----------------routesPageConfig---', routesPageConfig);
     return routesPageConfig;
 };
 

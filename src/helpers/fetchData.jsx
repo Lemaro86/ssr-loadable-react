@@ -21,15 +21,9 @@ const mapDispatchToProps = dispatch => {
 const fetchData = fetch => {
   return WrappedComponent => {
     class DataLoader extends Component {
-      static propTypes = {
-        isDataFetchEnabled: PropTypes.bool.isRequired,
-        dispatch: PropTypes.func.isRequired,
-        push: PropTypes.func.isRequired
-      };
-
       constructor(props) {
         super(props);
-        const {dispatch, isDataFetchEnabled, push, } = props;
+        const {dispatch, isDataFetchEnabled, push } = props;
         if (__SERVER__) {
           push(fetch({ dispatch, match: props.match }));
         } else if (isDataFetchEnabled){

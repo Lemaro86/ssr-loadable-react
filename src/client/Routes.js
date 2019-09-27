@@ -21,7 +21,7 @@ const AsyncPageFetch = Loadable({
 
 const routePage = item => ({
     component: AsyncPageFetch,
-    path: `/pageFetch/${item.id}`,
+    path: `/pageFetch/:id`,
     pageId: item.id,
     exact: true
 });
